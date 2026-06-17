@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車 - 您的寵物商城</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+    <div class="cart-container">
+        <h2>您的購物車</h2>
+
+        <div id="login-prompt" class="status-prompt" style="display: none;">
+            <p>請先 <a href="login.html" class="auth-link">登入會員</a> 以查看與管理您的購物車內容。</p>
+        </div>
+
+        <div id="empty-prompt" class="status-prompt" style="display: none;">
+            <p>目前購物車是空的，快去逛逛吧！</p>
+        </div>
+
+        <div id="error-message" class="error-msg" style="display: none;"></div>
+
+        <div id="cart-content" style="display: none;">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>商品名稱</th>
+                        <th>單價</th>
+                        <th>數量調整</th>
+                        <th>小計</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="3">總計</td>
+                        <td id="cart-total" class="total-price">NT$ 0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="checkout-zone">
+                            <form action="#" method="post">
+                                <button type="submit" class="btn-checkout">✅ 確認結帳</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← 回到商城首頁</a>
+        </div>
+    </div>
+
+    <script src="js/cart.js"></script>
+
+<footer>
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

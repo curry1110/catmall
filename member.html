@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員中心 - 寵物商城</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .member-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .member-header { text-align: center; margin-bottom: 40px; }
+        .member-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin-bottom: 30px; border: 1px solid #eee; }
+        .member-card h2 { font-size: 20px; color: #333; margin-bottom: 20px; border-left: 4px solid #3fa34d; padding-left: 12px; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .info-item { padding: 15px; background: #f9f9f9; border-radius: 8px; }
+        .info-label { display: block; font-size: 0.85rem; color: #888; margin-bottom: 5px; }
+        .info-value { font-size: 1.1rem; font-weight: 600; color: #333; }
+        .record-item { padding: 15px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
+        .record-item:last-child { border-bottom: none; }
+        .record-info h4 { margin: 0; font-size: 1rem; color: #333; }
+        .record-info p { margin: 5px 0 0; font-size: 0.85rem; color: #777; }
+        .record-rating { color: #ffb703; font-weight: bold; }
+        .btn-group { display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
+        .btn { padding: 10px 25px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: 0.3s; border: none; }
+        .btn-primary { background: #3fa34d; color: white; }
+    </style>
+</head>
+<body>
+
+
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html">會員</a>
+            <a href="history.html">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+
+
+<div class="member-container">
+    <div class="member-header">
+        <h1>會員中心</h1>
+        <p>管理您的個人資料與活動紀錄</p>
+    </div>
+
+    <div id="member-content">
+        <div id="member-info-section" style="display: none;">
+            <div class="member-card">
+                <h2>個人基本資料</h2>
+                <div class="info-grid">
+                    <div class="info-item"><span class="info-label">會員帳號</span><span class="info-value" id="member-username">-</span></div>
+                    <div class="info-item"><span class="info-label">會員等級</span><span class="info-value">黃金會員</span></div>
+                    <div class="info-item"><span class="info-label">註冊日期</span><span class="info-value">2026/05/20</span></div>
+                    <div class="info-item"><span class="info-label">電子郵件</span><span class="info-value" id="member-email">-</span></div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <h2>您的評論紀錄</h2>
+                <div class="record-list" id="review-records">
+                    <!-- 評論將由 JS 動態載入 -->
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="location.href='history.html'">查看消費紀錄</button>
+                <button class="btn" style="background: #eee;" onclick="alert('功能開發中')">編輯個人資料</button>
+            </div>
+        </div>
+
+        <div class="login-prompt" id="login-prompt-section" style="text-align: center; padding: 60px;">
+            <p>您目前尚未登入，請登入後查看完整會員資料。</p>
+            <button class="btn btn-primary" onclick="location.href='login.html'">立即登入</button>
+        </div>
+    </div>
+</div>
+
+<footer style="margin-top: 60px;">
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const user = localStorage.getItem('pet_user');
+        if (user) {
+            document.getElementById('member-info-section').style.display = 'block';
+            document.getElementById('login-prompt-section').style.display = 'none';
+            document.getElementById('member-username').textContent = user;
+            document.getElementById('member-email').textContent = user + "@paws.com";
+            
+            // 載入真實評論紀錄，並依據目前登入的使用者進行過濾
+            const allReviews = JSON.parse(localStorage.getItem('pet_reviews') || '[]');
+            const userReviews = allReviews.filter(r => r.user === user);
+            
+            const recordList = document.getElementById('review-records');
+            if (userReviews.length > 0) {
+                recordList.innerHTML = userReviews.map(r => `
+                    <div class="record-item">
+                        <div class="record-info">
+                            <h4>${r.productName}</h4>
+                            <p>${r.content}</p>
+                            <small style="color: #999;">發表於 ${r.date}</small>
+                        </div>
+                        <div class="record-rating">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+                    </div>
+                `).join('');
+            } else {
+                recordList.innerHTML = '<p style="color: #888; text-align: center; padding: 20px;">尚無評論紀錄</p>';
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

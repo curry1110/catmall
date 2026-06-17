@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品結帳資料確認</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkoutCart.css">
+</head>
+<body class="checkout-body">
+
+    <div class="checkout-container">
+        <h2>結帳資料確認</h2>
+
+        <div id="error-box" class="error-msg" style="display: none;"></div>
+
+        <div id="checkout-content">
+            <div class="product-info-item">
+                <div id="display-product-name" class="prod-name">商品名稱：載入中...</div>
+                <div class="prod-details">
+                    <span id="display-price-qty">單價：- 元 × 數量：-</span>
+                    <span id="display-subtotal" class="prod-subtotal">NT$ 0</span>
+                </div>
+            </div>
+
+            <div class="total-amount-block">
+                <span>應付總金額</span>
+                <span id="total-amount-display">NT$ 0</span>
+            </div>
+
+            <form id="direct-order-form" method="post">
+                <label for="buyer_name">
+                    收件人姓名
+                    <input type="text" name="buyer_name" id="buyer_name" required placeholder="請輸入收件人完整姓名" />
+                </label>
+                
+                <label for="buyer_phone">
+                    聯絡電話
+                    <input type="text" name="buyer_phone" id="buyer_phone" required placeholder="請輸入您的聯絡電話" />
+                </label>
+
+                <button type="submit" class="btn-submit-order">確認送出訂單</button>
+            </form>
+        </div>
+
+        <div class="checkout-actions">
+            <a href="index.html" class="btn-secondary btn-gray">返回商城首頁</a>
+        </div>
+    </div>
+
+    <script src="js/checkout.js"></script>
+
+<footer>
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

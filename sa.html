@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貓砂 - 商品詳情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/oldcat.css">
+</head>
+<body>
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html">會員</a>
+            <a href="history.html">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <ol>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="product3.html">其他</a></li>
+            <li aria-current="page">貓砂</li>
+        </ol>
+    </nav>
+    <main class="main-container">
+        <div class="product-hero">
+            <div class="product-image-wrapper">
+                <img src="images/sa.jpg" alt="除臭貓砂">
+            </div>
+            <div class="product-info-text">
+                <h1>除臭極速凝結貓砂</h1>
+                <h2>全齡貓咪適用</h2>
+				<p class="description">瞬間吸水，持久無味！結合高質量活性碳與深層綠沸石，從源頭強力吸附並分解異味分子。5倍超強吸水力秒速凝結、緊密不黏底，鏟屎從此輕鬆優雅，還給家裡最純淨清新的好空氣。</p>
+                <div class="stock-info">
+                    <span class="icon">📦</span>
+                    <strong>庫存數量：</strong>
+                    <span id="stock-quantity" class="quantity">95</span> 件
+                </div>
+                <div class="price-info">
+                    <span class="icon">💰</span>
+                    <strong>商品金額：</strong>
+                    <span class="amount">NT$ 250</span>
+                </div>
+                <form id="purchaseForm">
+                    <input type="hidden" name="productId" value="6">
+                    <input type="hidden" name="productName" value="除臭極速凝結貓砂">
+                    <input type="hidden" name="price" value="250">
+                    <div class="quantity-container">
+                        <button type="button" class="quantity-btn" id="decreaseBtn">−</button>
+                        <input type="number" name="quantity" id="quantity" value="1" min="1">
+                        <button type="button" class="quantity-btn" id="increaseBtn">+</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-cart">加入購物車</button>
+                        <button type="button" class="btn btn-buy" onclick="buyNow()">直接購買</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="product-intro">
+            <h2>產品介紹</h2>
+            <p>這款除臭貓砂能有效中和貓咪排泄的異味，提供清新環境，並吸收尿液形成結塊，便於清理。天然成分無毒無害，讓貓咪使用更安心。</p>
+            <div class="product-features">
+                <div class="feature-card">
+                    <h3>快速吸尿不黏底</h3>
+                    <p>獨有吸附自身體積五倍水量，吸收尿瞬間形成結構。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>混合活性碳藍礦</h3>
+                    <p>製程以高頻震碎把椰殼活性碳高壓烘烤濃縮進每一顆純砂中。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>火山深層綠沸石</h3>
+                    <p>吸附尿液的阿摩尼亞以及氨臭腥味，保持貓砂盆以及室內清新空氣。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <h2>商品評論</h2>
+            <div id="commentsList"></div>
+            <div class="review-form-wrapper">
+                <h3>留下你的評論</h3>
+                <form id="commentForm">
+                    <label for="reviewerName">名字：</label>
+                    <input type="text" id="reviewerName" required>
+                    <label for="reviewRating">評分：</label>
+                    <select id="reviewRating" required>
+                        <option value="5">★★★★★</option>
+                        <option value="4">★★★★</option>
+                        <option value="3">★★★</option>
+                        <option value="2">★★</option>
+                        <option value="1">★</option>
+                    </select>
+                    <label for="reviewContent">評論內容：</label>
+                    <textarea id="reviewContent" required></textarea>
+                    <button type="submit" class="btn-submit-review">送出評論</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>

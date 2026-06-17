@@ -1,0 +1,519 @@
+/* ==========================================================================
+   1. 全域重設與背景設定
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f7f9fa;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   2. 導覽列與搜尋框 (Header & Navigation)
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.02);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.nav-container > a, .dropdown > a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444444;
+    padding: 6px 4px;
+}
+
+.nav-container > a:hover, .dropdown:hover > a {
+    color: #3fa34d;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 1001;
+}
+
+.dropdown-content a {
+    color: #444444;
+    padding: 10px 18px;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #f4f9f4;
+    color: #3fa34d;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 會員專區區塊 - 優化後的排版 */
+#member-guest-zone {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-left: auto;
+    padding: 6px 16px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    flex-wrap: nowrap; /* 強制不換行防止跑版 */
+}
+
+#welcome-msg {
+    font-size: 0.9rem;
+    color: #3fa34d;
+    font-weight: 600;
+    padding-right: 8px;
+    border-right: 1px solid #dee2e6;
+}
+
+#member-guest-zone a {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+#member-guest-zone a:hover {
+    color: #3fa34d;
+}
+
+.cart-link {
+    background-color: #3fa34d;
+    color: #fff !important;
+    padding: 5px 12px !important;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.cart-link:hover {
+    background-color: #2e823a;
+    color: #fff !important;
+}
+
+/* 搜尋框樣式 */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    padding: 8px 16px;
+    border: 1px solid #c2cfd6;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    font-size: 0.85rem;
+    width: 180px;
+}
+
+.search-box button {
+    padding: 8px 16px;
+    background-color: #3fa34d;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+.search-box button:hover {
+    background-color: #2e823a;
+}
+
+/* ==========================================================================
+   3. 首頁內容區塊
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.015);
+}
+
+.text {
+    flex: 1.2;
+}
+
+.text h1 {
+    font-size: 1.3rem;
+    color: #3fa34d;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.text h2 {
+    font-size: 2.1rem;
+    color: #1a2530;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.text p {
+    font-size: 0.98rem;
+    color: #555555;
+    margin-bottom: 18px;
+    line-height: 1.75;
+}
+
+.image-wrapper {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   4. 限時促銷倒數 (Countdown Timer)
+   ========================================================================== */
+.countdown-container {
+    max-width: 1200px;
+    margin: 24px auto;
+    background: linear-gradient(135deg, #4ecb71, #3fa34d); 
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.countdown-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.countdown-item {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    min-width: 90px;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-top: 4px;
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   5. 廣告輪播圖 (Carousel)
+   ========================================================================== */
+.carousel {
+    max-width: 1200px;
+    margin: 24px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.015);
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    aspect-ratio: 16 / 6;
+    max-height: 400px;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #f5f5f5;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444444;
+    transition: all 0.2s;
+}
+
+.carousel-btn:hover {
+    background-color: #3fa34d;
+    color: #ffffff;
+}
+
+.carousel-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.carousel-dot.active {
+    background-color: #3fa34d;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   6. 聯絡資訊區塊
+   ========================================================================== */
+.contact-info-block {
+    max-width: 1200px;
+    margin: 24px auto;
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.015);
+    border-top: 3px solid #3fa34d;
+}
+
+.contact-info-block h3 {
+    font-size: 1.3rem;
+    color: #1a2530;
+    margin-bottom: 16px;
+}
+
+.contact-info-block p {
+    margin: 8px 0;
+    color: #666666;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. 登入頁面專屬樣式
+   ========================================================================== */
+.login-body {
+    background-color: #f7f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f5;
+}
+
+.login-container h1 {
+    font-size: 1.8rem;
+    color: #1a2530;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #444444;
+    font-weight: 500;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #333333;
+    outline: none;
+    transition: 0.2s;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #3fa34d;
+    box-shadow: 0 0 0 3px rgba(63, 163, 77, 0.1);
+}
+
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #3fa34d;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #2e823a;
+}
+
+.back-link {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666666;
+    margin-top: 24px;
+}
+
+.back-link a {
+    color: #3fa34d;
+    font-weight: 500;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   8. Cookie 與 Footer
+   ========================================================================== */
+.cookie-consent {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(26, 37, 48, 0.95);
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 2000;
+    width: 90%;
+    max-width: 650px;
+}
+
+footer {
+    background-color: #1a2530;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    border-top: none;
+}
+
+footer p {
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   9. RWD 響應式佈局
+   ========================================================================== */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 35px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container { justify-content: center; }
+    #member-guest-zone { margin-left: 0; width: 100%; justify-content: center; }
+    .search-box { width: 100%; justify-content: center; }
+}

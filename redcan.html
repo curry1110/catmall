@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鰹魚木魚乾罐頭 - 商品詳情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/oldcat.css">
+</head>
+<body>
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html">會員</a>
+            <a href="history.html">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <ol>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="product2.html">罐頭產品</a></li>
+            <li aria-current="page">鰹魚木魚乾罐頭</li>
+        </ol>
+    </nav>
+    <main class="main-container">
+        <div class="product-hero">
+            <div class="product-image-wrapper">
+                <img src="images/redcan.jpg" alt="鰹魚木魚乾罐頭">
+            </div>
+            <div class="product-info-text">
+                <h1>鰹魚木魚乾罐頭</h1>
+                <h2>1歲以上成貓適用</h2>
+				<p class="description">雙重海味完美交織！嚴選頂級鰹魚基底，拌入鮮嫩小鯷魚，富含優質蛋白與 Omega-3，細緻肉質搭配豐沛湯汁，是慰勞挑嘴成貓的極致補水饗宴。</p>
+                <div class="stock-info">
+                    <span class="icon">📦</span>
+                    <strong>庫存數量：</strong>
+                    <span id="stock-quantity" class="quantity">100</span> 件
+                </div>
+                <div class="price-info">
+                    <span class="icon">💰</span>
+                    <strong>商品金額：</strong>
+                    <span class="amount">NT$ 65</span>
+                </div>
+                <form id="purchaseForm">
+                    <input type="hidden" name="productId" value="1">
+                    <input type="hidden" name="productName" value="鰹魚木魚乾罐頭">
+                    <input type="hidden" name="price" value="65">
+                    <div class="quantity-container">
+                        <button type="button" class="quantity-btn" id="decreaseBtn">−</button>
+                        <input type="number" name="quantity" id="quantity" value="1" min="1">
+                        <button type="button" class="quantity-btn" id="increaseBtn">+</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-cart">加入購物車</button>
+                        <button type="button" class="btn btn-buy" onclick="buyNow()">直接購買</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="product-intro">
+            <h2>產品介紹</h2>
+            <p>這款罐頭專為挑嘴貓咪設計，搭配精選鰹魚、鮪魚與柴魚，提供高品質蛋白和獨特風味，讓貓咪享受美味與營養。</p>
+            <div class="product-features">
+                <div class="feature-card">
+                    <h3>優質蛋白</h3>
+                    <p>鰹魚與鮪魚精心挑選，提供豐富蛋白質，助力健康體態。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>木魚風味</h3>
+                    <p>搭配柴魚燉煮，散發濃郁香氣，激發貓咪食慾。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>營養均衡</h3>
+                    <p>含多種必要維生素與礦物質，滿足每日營養需求。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <h2>商品評論</h2>
+            <div id="commentsList"></div>
+            <div class="review-form-wrapper">
+                <h3>留下你的評論</h3>
+                <form id="commentForm">
+                    <label for="reviewerName">名字：</label>
+                    <input type="text" id="reviewerName" required>
+                    <label for="reviewRating">評分：</label>
+                    <select id="reviewRating" required>
+                        <option value="5">★★★★★</option>
+                        <option value="4">★★★★</option>
+                        <option value="3">★★★</option>
+                        <option value="2">★★</option>
+                        <option value="1">★</option>
+                    </select>
+                    <label for="reviewContent">評論內容：</label>
+                    <textarea id="reviewContent" required></textarea>
+                    <button type="submit" class="btn-submit-review">送出評論</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>

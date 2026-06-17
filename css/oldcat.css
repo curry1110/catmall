@@ -1,0 +1,509 @@
+/* ==========================================
+   1. 全域重設與基本樣式
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans TC', 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. 頁首與導覽列 (Header & Nav)
+   ========================================== */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 0;
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 25px;
+    gap: 15px;
+}
+
+.nav-container > a,
+.dropdown > a {
+    text-decoration: none;
+    color: #777777;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-container > a:hover,
+.dropdown > a:hover {
+    background-color: #f0f0f0;
+    color: #4CAF50;
+}
+
+/* 會員區區塊 */
+.member-zone {
+    display: flex;
+    gap: 10px;
+}
+
+.member-zone a {
+    text-decoration: none;
+    color: #777777;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 14px;
+}
+
+.member-zone a:hover {
+    color: #4CAF50;
+}
+
+/* 下拉選單邏輯 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 5px 0;
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+}
+
+.dropdown-content a {
+    padding: 10px 16px;
+    display: block;
+    color: #555555;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+    color: #4CAF50;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 搜尋框 */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 2px solid #4CAF50;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.search-box input[type="text"] {
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    outline: none;
+    background-color: transparent;
+    width: 180px;
+}
+
+.search-box button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #45a049;
+}
+
+/* ==========================================
+   3. 麵包屑導覽 (Breadcrumb)
+   ========================================== */
+.breadcrumb {
+    margin: 10px 40px;
+}
+
+.breadcrumb ol {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #888888;
+    font-size: 15px;
+}
+
+.breadcrumb li a:hover {
+    color: #4CAF50;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: ">";
+    margin-left: 10px;
+    color: #888888;
+}
+
+/* ==========================================
+   4. 主要內容與商品呈現區
+   ========================================== */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product-hero {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 40px;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.product-image-wrapper {
+    flex: 1;
+    text-align: center;
+}
+
+.product-image-wrapper img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-info-text {
+    flex: 1;
+}
+
+.product-info-text h1 {
+    font-size: 36px;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.product-info-text h2 {
+    font-size: 18px;
+    color: #e53935;
+    margin-bottom: 15px;
+}
+
+.product-info-text .description {
+    color: #666666;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* 庫存提示 */
+.stock-info {
+    font-size: 16px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stock-info .quantity {
+    font-weight: bold;
+    color: #e53935;
+}
+
+/* 金額顯示 */
+.price-info {
+    font-size: 16px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.price-info .amount {
+    font-weight: bold;
+    color: #e53935;
+    font-size: 20px;
+}
+
+/* 數量選擇器 */
+.quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+.quantity-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+input[type="number"] {
+    width: 60px;
+    height: 36px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    text-align: center;
+    outline: none;
+}
+
+/* 移除 input[number] 的箭頭 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 按鈕群組 */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cart {
+    background-color: transparent;
+    color: #333333;
+    border: 2px solid #333333;
+}
+
+.btn-cart:hover {
+    background-color: #f5f5f5;
+}
+
+.btn-buy {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.btn-buy:hover {
+    background-color: #45a049;
+}
+
+/* ==========================================
+   5. 產品介紹與特色區
+   ========================================== */
+.product-intro {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.product-intro h2 {
+    font-size: 26px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.product-intro > p {
+    font-size: 16px;
+    color: #666666;
+    max-width: 800px;
+    margin: 0 auto 35px auto;
+}
+
+.product-features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: #f9f9f9;
+    padding: 25px 20px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    color: #4CAF50;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #777777;
+}
+
+/* ==========================================
+   6. 評論與留言區
+   ========================================== */
+.reviews-section {
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.reviews-section h2 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* 留言項目 */
+.review-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #e3e8ee;
+}
+
+.review-item:last-of-type {
+    border-bottom: 2px solid #e3e8ee; /* 與表單的分隔線 */
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.review-username {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1a73e8;
+}
+
+.review-rating {
+    color: #f5a623;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.review-message {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    white-space: pre-wrap;
+}
+
+.review-date {
+    font-size: 13px;
+    color: #999999;
+}
+
+/* 填寫評論表單 */
+.review-form-wrapper {
+    margin-top: 35px;
+}
+
+.review-form-wrapper h3 {
+    font-size: 20px;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+.review-form-wrapper label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #475569;
+    font-size: 15px;
+}
+
+.review-form-wrapper input[type="text"],
+.review-form-wrapper select,
+.review-form-wrapper textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #374151;
+    background-color: #f9fafb;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.review-form-wrapper input[type="text"]:focus,
+.review-form-wrapper select:focus,
+.review-form-wrapper textarea:focus {
+    border-color: #1a73e8;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+.review-form-wrapper textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit-review {
+    width: 100%;
+    background-color: #1a73e8;
+    color: white;
+    font-weight: bold;
+    padding: 14px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit-review:hover {
+    background-color: #155ab6;
+}

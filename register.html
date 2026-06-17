@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <title>會員註冊</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>會員註冊</h1>
+        
+        <form action="register_process.jsp" method="post">
+            
+            <label for="username">帳號：</label>
+            <input type="text" id="username" name="username" placeholder="請輸入帳號" required>
+            
+            <label for="password">密碼：</label>
+            <input type="password" id="password" name="password" placeholder="請輸入密碼" required>
+            
+            <label for="email">電子郵件：</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            
+            <button type="submit">註冊</button>
+            
+        </form>
+        
+        <div class="back-link">
+            已經有帳號？<a href="login.html">前往登入</a>
+        </div>
+        
+        <div class="back-link mt-10">
+            <a href="index.html">回首頁</a>
+        </div>
+        
+        </div>
+    <script src="js/auth.js"></script>
+
+<footer>
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* ==========================================================================
+   購物車結帳頁面專屬獨立 CSS (完美適配網頁簡約純淨質感)
+   ========================================================================== */
+
+/* 滿版垂直水平居中佈局 */
+.checkout-body {
+    background-color: #f7f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* 結帳主卡片外殼 */
+.checkout-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px; /* 精緻集中的表單寬度 */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02); /* 與產品內頁同款的簡約微陰影 */
+    border: 1px solid #eef2f5;
+}
+
+.checkout-container h2 {
+    font-size: 1.6rem;
+    color: #1a2530; /* 沿用成貓頁面的深藍黑標題色 */
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* 讀取中狀態文字 */
+.loading-text {
+    text-align: center;
+    color: #888888;
+    padding: 20px 0;
+    font-size: 0.95rem;
+}
+
+/* 動態商品資訊小卡樣式 */
+.product-info-item {
+    background-color: #f8fafb; /* 優雅的極淺灰藍底色 */
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #f0f3f5;
+}
+
+.product-info-item .prod-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+.product-info-item .prod-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666666;
+}
+
+.product-info-item .prod-subtotal {
+    font-weight: bold;
+    color: #444444;
+}
+
+/* 總金額區塊 */
+.total-amount-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed #ced4da;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1a2530;
+}
+
+#total-amount-display {
+    font-size: 1.5rem;
+    color: #3fa34d; /* 金額採用商城草綠色，呈現視覺重點 */
+}
+
+/* 表單與標籤排版 */
+#order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#order-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #444444;
+    font-weight: 500;
+}
+
+/* 輸入框完美復刻 */
+#order-form input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #333333;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 聚焦時與首頁按鈕草綠色完美同步 */
+#order-form input[type="text"]:focus {
+    border-color: #3fa34d;
+    box-shadow: 0 0 0 3px rgba(63, 163, 77, 0.1);
+}
+
+/* 送出訂單大按鈕 - 完美銜接商城的草綠色 */
+.btn-submit-order {
+    width: 100%;
+    padding: 14px;
+    background-color: #3fa34d; 
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 12px rgba(63, 163, 77, 0.15);
+}
+
+.btn-submit-order:hover {
+    background-color: #2e823a; /* 懸停加深 */
+}
+
+/* 底部操作按鈕群 */
+.checkout-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+/* 次要按鈕通用樣式 */
+.btn-secondary {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn-orange {
+    background-color: #e67e22; /* 保留原本貼心的橘色提醒 */
+    color: #ffffff;
+}
+
+.btn-orange:hover {
+    background-color: #d35400;
+}
+
+.btn-gray {
+    background-color: #f1f3f5;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.btn-gray:hover {
+    background-color: #e9ecef;
+}
+
+/* 錯誤提示橫幅 */
+.error-msg {
+    background-color: #fff5f5;
+    color: #d94141;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 4px solid #d94141;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* ==========================================================================
+   10. RWD 響應式手機版縮放
+   ========================================================================== */
+@media (max-width: 500px) {
+    .checkout-body { padding: 20px 12px; }
+    .checkout-container { padding: 30px 20px; }
+    .checkout-container h2 { font-size: 1.4rem; margin-bottom: 20px; }
+}

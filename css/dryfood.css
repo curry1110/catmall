@@ -1,0 +1,159 @@
+/* ==========================================================================
+   乾糧產品總清單畫面專屬 CSS (完美適配全站草綠色簡約風格)
+   ========================================================================== */
+
+.dryfood-main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 頂部標題區 */
+.page-title-zone {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title-zone h1 {
+    font-size: 2.2rem;
+    color: #1a2530; /* 全站深藍黑 */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page-title-zone p {
+    color: #666666;
+    font-size: 1rem;
+}
+
+/* 產品三欄式網格佈局 */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 完美三欄並排 */
+    gap: 30px;
+}
+
+/* 產品卡片主結構 */
+.product-item-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* 確保圖片圓角不會破出 */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.015); /* 微妙的精緻輕陰影 */
+    border: 1px solid #eef2f5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 滑鼠滑過卡片浮起特效 */
+.product-item-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* 圖片外殼與相對定位標籤 */
+.prod-img-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #fafbfc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+.prod-img-box img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    width: 80%;
+    height: 80%;
+}
+
+/* 各別適用年齡標籤（完美呼應你內頁的色系） */
+.age-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+.tag-kitten { background-color: #d94141; } /* 幼貓紅 */
+.tag-adult { background-color: #3fa34d; }  /* 成貓綠 */
+.tag-senior { background-color: #e67e22; } /* 老貓橘 */
+
+/* 下半部資訊資訊區 */
+.prod-info-box {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.prod-info-box h3 {
+    font-size: 1.2rem;
+    color: #1a2530;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.prod-desc {
+    font-size: 0.92rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* 確保敘述文字高度不一時，底部按鈕依然對齊 */
+}
+
+/* 價格與按鈕區 */
+.prod-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.prod-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1a2530;
+}
+
+/* 查看詳情按鈕 - 完美銜接草綠色 */
+.btn-view-detail {
+    padding: 8px 20px;
+    background-color: #3fa34d;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn-view-detail:hover {
+    background-color: #2e823a;
+}
+
+/* ==========================================================================
+   11. RWD 響應式佈局調整 (平板、手機防爆版)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板變成兩欄 */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* 手機變成單欄滿版 */
+    }
+    .page-title-zone h1 { font-size: 1.8rem; }
+    .prod-info-box { padding: 20px; }
+}
