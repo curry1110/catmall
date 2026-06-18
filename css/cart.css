@@ -1,0 +1,190 @@
+
+.cart-container {
+    background-color: #ffffff;
+    max-width: 960px;
+    margin: 60px auto;
+    padding: 45px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+    border: 1px solid #eef2f5;
+    text-align: center;
+}
+
+.cart-container h2 {
+    font-size: 1.8rem;
+    color: #1a2530; 
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+
+.status-prompt {
+    padding: 40px 20px;
+    font-size: 1.05rem;
+    color: #666666;
+}
+
+.auth-link {
+    color: #0066cc;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #f8f9fa;
+    color: #444444;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 16px;
+    border-bottom: 2px solid #eef2f5;
+}
+
+.cart-table td {
+    padding: 18px 16px;
+    font-size: 1rem;
+    color: #333333;
+    border-bottom: 1px solid #eef2f5;
+    vertical-align: middle;
+}
+
+.stock-tip {
+    font-size: 0.8rem;
+    color: #888888;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.qty-control-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cart-table input[type="number"] {
+    width: 65px;
+    padding: 6px 8px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.cart-table input[type="number"]:focus {
+    border-color: #3fa34d; 
+}
+
+/* 各式功能按鈕（更新、刪除、結帳） */
+.btn-update {
+    padding: 6px 14px;
+    background-color: #3fa34d; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-update:hover {
+    background-color: #2e823a;
+}
+
+.btn-delete {
+    padding: 6px 14px;
+    background-color: #f44336; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+
+/* 總計欄位 row */
+.total-row td {
+    font-weight: 700;
+    background-color: #fcfdfd;
+    font-size: 1.1rem;
+    border-top: 2px solid #eef2f5;
+}
+
+.total-price {
+    color: #d94141; 
+}
+
+/* 結帳區塊 */
+.checkout-zone {
+    padding-top: 35px !important;
+    border-bottom: none !important;
+}
+
+.btn-checkout {
+    padding: 12px 35px;
+    font-size: 1.05rem;
+    background-color: #3fa34d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(63, 163, 77, 0.15);
+}
+
+.btn-checkout:hover {
+    background-color: #2e823a;
+}
+
+.btn-checkout:active {
+    transform: scale(0.98);
+}
+
+.error-msg {
+    background-color: #fff5f5;
+    color: #d94141;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border-left: 4px solid #d94141;
+    margin: 15px 0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.back-link {
+    margin-top: 30px;
+    font-size: 0.95rem;
+}
+
+.back-link a {
+    color: #666666;
+}
+
+.back-link a:hover {
+    color: #3fa34d;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .cart-container { padding: 25px 15px; margin: 20px auto; }
+    .cart-table th, .cart-table td { padding: 10px 8px; font-size: 0.9rem; }
+    .qty-control-box { flex-direction: column; gap: 4px; }
+    .cart-table input[type="number"] { width: 55px; }
+    .btn-update, .btn-delete { padding: 4px 8px; font-size: 0.8rem; }
+}

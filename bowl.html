@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貓碗 - 商品詳情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/oldcat.css">
+</head>
+<body>
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html">會員</a>
+            <a href="history.html">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <ol>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="product3.html">其他</a></li>
+            <li aria-current="page">貓碗</li>
+        </ol>
+    </nav>
+    <main class="main-container">
+        <div class="product-hero">
+            <div class="product-image-wrapper">
+                <img src="images/bowl.jpg" alt="精選貓碗">
+            </div>
+            <div class="product-info-text">
+                <h1>護頸椎防打翻陶瓷貓碗</h1>
+                <h2>全齡貓咪適用</h2>
+				<p class="description">呵護主子胃口與頸椎的完美工藝。精心設計的斜口黃金角度，能有效減輕貓咪進食時的頸部壓力，維持自然舒適的用餐姿勢；搭配厚實沉穩的防打翻底座，再調皮的貓咪也能安心享受每一餐。</p>
+                <div class="stock-info">
+                    <span class="icon">📦</span>
+                    <strong>庫存數量：</strong>
+                    <span id="stock-quantity" class="quantity">60</span> 件
+                </div>
+                <div class="price-info">
+                    <span class="icon">💰</span>
+                    <strong>商品金額：</strong>
+                    <span class="amount">NT$ 320</span>
+                </div>
+                <form id="purchaseForm">
+                    <input type="hidden" name="productId" value="5">
+                    <input type="hidden" name="productName" value="護頸椎防打翻陶瓷貓碗">
+                    <input type="hidden" name="price" value="320">
+                    <div class="quantity-container">
+                        <button type="button" class="quantity-btn" id="decreaseBtn">−</button>
+                        <input type="number" name="quantity" id="quantity" value="1" min="1">
+                        <button type="button" class="quantity-btn" id="increaseBtn">+</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-cart">加入購物車</button>
+                        <button type="button" class="btn btn-buy" onclick="buyNow()">直接購買</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="product-intro">
+            <h2>產品介紹</h2>
+            <p>這款斜口貓碗設計獨特，能讓貓咪保持自然低頭姿勢進食，減少浪費。防滑底部有效防止碗移動，保持用餐區域整潔。</p>
+            <div class="product-features">
+                <div class="feature-card">
+                    <h3>符合貓咪食用習慣</h3>
+                    <p>斜口設計可讓貓咪輕鬆進食，減少食物浪費，保持姿勢自然。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>防滑設計</h3>
+                    <p>底部防滑墊讓貓碗穩固不易滑動，避免食物灑落，確保進食時穩定。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>易清潔材質</h3>
+                    <p>高品質材質，耐用且容易清潔，保持碗內乾淨衛生。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <h2>商品評論</h2>
+            <div id="commentsList"></div>
+            <div class="review-form-wrapper">
+                <h3>留下你的評論</h3>
+                <form id="commentForm">
+                    <label for="reviewerName">名字：</label>
+                    <input type="text" id="reviewerName" required>
+                    <label for="reviewRating">評分：</label>
+                    <select id="reviewRating" required>
+                        <option value="5">★★★★★</option>
+                        <option value="4">★★★★</option>
+                        <option value="3">★★★</option>
+                        <option value="2">★★</option>
+                        <option value="1">★</option>
+                    </select>
+                    <label for="reviewContent">評論內容：</label>
+                    <textarea id="reviewContent" required></textarea>
+                    <button type="submit" class="btn-submit-review">送出評論</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>

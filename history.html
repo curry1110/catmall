@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物記錄 - 寵物商城</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f7f9fa;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .history-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .history-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .history-header h1 {
+            font-size: 36px;
+            color: #111111;
+            margin-bottom: 10px;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-table thead {
+            background-color: #3fa34d;
+            color: white;
+        }
+
+        .history-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 2px solid #3fa34d;
+        }
+
+        .history-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .history-table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .status-pending {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .status-completed {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .status-cancelled {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            color: #999999;
+            margin-bottom: 20px;
+        }
+
+        .empty-state a {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: #3fa34d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .empty-state a:hover {
+            background-color: #2e823a;
+        }
+
+        .login-prompt {
+            text-align: center;
+            padding: 40px;
+            background-color: #fff3cd;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .login-prompt p {
+            font-size: 16px;
+            color: #856404;
+            margin-bottom: 20px;
+        }
+
+        .login-prompt a {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: #3fa34d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .login-prompt a:hover {
+            background-color: #2e823a;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .filter-section {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filter-section label {
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .filter-section select {
+            padding: 8px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .history-table {
+                font-size: 12px;
+            }
+
+            .history-table th,
+            .history-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html" id="member-link">會員中心</a>
+            <a href="history.html" id="history-link">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+
+
+    <div class="history-container">
+        <div class="history-header">
+            <h1>購物記錄</h1>
+            <p>查看您的訂單歷史和購物詳情</p>
+        </div>
+
+        <div id="history-content">
+            <div id="history-section" style="display: none;">
+                <div class="filter-section">
+                    <label for="status-filter">篩選狀態：</label>
+                    <select id="status-filter" onchange="filterHistory()">
+                        <option value="">全部訂單</option>
+                        <option value="completed">已完成</option>
+                        <option value="pending">處理中</option>
+                        <option value="cancelled">已取消</option>
+                    </select>
+                </div>
+
+                <table class="history-table" id="history-table">
+                    <thead>
+                        <tr>
+                            <th>訂單編號</th>
+                            <th>訂單日期</th>
+                            <th>商品名稱</th>
+                            <th>數量</th>
+                            <th>金額</th>
+                            <th>狀態</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-tbody">
+                    </tbody>
+                </table>
+
+                <div id="empty-history" class="empty-state" style="display: none;">
+                    <p>📦 您還沒有購物記錄</p>
+                    <a href="product1.html">開始購物</a>
+                </div>
+            </div>
+
+            <!-- 未登入提示 -->
+            <div class="login-prompt" id="login-prompt-section">
+                <p>🔐 您還未登入，請先登入以查看購物記錄</p>
+                <a href="login.html">前往登入</a>
+            </div>
+        </div>
+    </div>
+
+    
+<footer>
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+        let allOrders = [];
+
+        function getHistoryKey() {
+            const user = localStorage.getItem('pet_user');
+            return user ? `pet_order_history_${user}` : 'pet_order_history_guest';
+        }
+
+        function renderHistoryPage() {
+            const user = localStorage.getItem('pet_user');
+            const historySection = document.getElementById('history-section');
+            const loginPromptSection = document.getElementById('login-prompt-section');
+
+            if (user) {
+                historySection.style.display = 'block';
+                loginPromptSection.style.display = 'none';
+                loadHistory();
+            } else {
+                historySection.style.display = 'none';
+                loginPromptSection.style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderHistoryPage);
+
+        
+        window.onAuthStateRefresh = renderHistoryPage;
+
+        function loadHistory() {
+            const key = getHistoryKey();
+            let storedOrders = [];
+            try {
+                storedOrders = JSON.parse(localStorage.getItem(key) || '[]');
+            } catch (e) { storedOrders = []; }
+
+            allOrders = storedOrders;
+            renderOrders(allOrders);
+        }
+
+        function renderOrders(orders) {
+            const tbody = document.getElementById('history-tbody');
+            const emptyHistory = document.getElementById('empty-history');
+            const table = document.getElementById('history-table');
+
+            tbody.innerHTML = '';
+
+            if (orders.length === 0) {
+                emptyHistory.style.display = 'block';
+                table.style.display = 'none';
+                return;
+            }
+
+            emptyHistory.style.display = 'none';
+            table.style.display = 'table';
+
+            orders.forEach(order => {
+                const row = document.createElement('tr');
+                const statusClass = `status-${order.status}`;
+                const statusText = getStatusText(order.status);
+
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.date}</td>
+                    <td>${order.product}</td>
+                    <td>${order.quantity}</td>
+                    <td>NT$ ${order.amount.toLocaleString()}</td>
+                    <td><span class="${statusClass}">${statusText}</span></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function filterHistory() {
+            const filterSelect = document.getElementById('status-filter');
+            const currentFilter = filterSelect.value;
+
+            if (currentFilter === '') {
+                renderOrders(allOrders);
+            } else {
+                const filtered = allOrders.filter(order => order.status === currentFilter);
+                renderOrders(filtered);
+            }
+        }
+
+        function getStatusText(status) {
+            const statusMap = {
+                'completed': '已完成',
+                'pending': '處理中',
+                'cancelled': '已取消'
+            };
+            return statusMap[status] || '未知';
+        }
+    </script>
+</body>
+</html>

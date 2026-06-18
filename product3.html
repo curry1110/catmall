@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活周邊系列 - 寵物商城</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dryfood.css">
+    <style>
+        /* 內嵌生活用品卡片專屬的分類特色標籤色彩 */
+        .tag-sa { background-color: #6c757d; }    /* 貓砂 - 時尚灰 */
+        .tag-bowl { background-color: #ffb703; }  /* 貓碗 - 亮眼黃 */
+        .tag-wo { background-color: #a06cd5; }    /* 貓窩 - 舒適紫 */
+    </style>
+</head>
+<body>
+
+
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html">會員</a>
+            <a href="history.html">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+
+
+<main class="dryfood-main">
+    <div class="page-title-zone">
+        <h1>精選寵物生活周邊</h1>
+        <p>嚴選高品質居家用品與環境清潔好物，全面提升主子的生活品質</p>
+    </div>
+
+    <div class="products-grid">
+        
+        <div class="product-item-card">
+            <div class="prod-img-box">
+                <img src="images/sa.jpg" alt="天然環保豆腐貓砂">
+                <span class="age-tag tag-sa">高效除臭</span>
+            </div>
+            <div class="prod-info-box">
+                <h3>除臭極速凝結貓砂</h3>
+                <p class="prod-desc">採用全天然原料製成，無化學添加物。超強吸水力與極速凝結技術，完美鎖住異味。低粉塵設計保護貓咪與您的呼吸道健康，可直接沖馬桶好清理。</p>
+                
+                <div class="card-features-badges">
+                    <span>天然無害配方</span>
+                    <span>秒速瞬間凝結</span>
+                    <span>99%超低粉塵</span>
+                </div>
+
+                <div class="prod-bottom-row">
+                    <span class="prod-price">NT$ 250</span>
+                    <a href="sa.html" class="btn-view-detail">查看詳情</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-item-card">
+            <div class="prod-img-box">
+                <img src="images/bowl.jpg" alt="護頸陶瓷貓碗">
+                <span class="age-tag tag-bowl">人體工學</span>
+            </div>
+            <div class="prod-info-box">
+                <h3>護頸椎防打翻陶瓷貓碗</h3>
+                <p class="prod-desc">專為貓咪進食習慣設計的傾斜角度與黃金高度，有效減輕頸椎與胃部壓力。高溫燒製抗菌陶瓷表面，清洗超方便，有效預防貓咪下巴長黑頭毛囊炎。</p>
+                
+                <div class="card-features-badges">
+                    <span>15度傾斜護頸</span>
+                    <span>抗菌易洗陶瓷</span>
+                    <span>加重防滑底座</span>
+                </div>
+
+                <div class="prod-bottom-row">
+                    <span class="prod-price">NT$ 320</span>
+                    <a href="bowl.html" class="btn-view-detail">查看詳情</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-item-card">
+            <div class="prod-img-box">
+                <img src="images/wo.jpg" alt="深睡眠舒適貓窩">
+                <span class="age-tag tag-wo">極致舒適</span>
+            </div>
+            <div class="prod-info-box">
+                <h3>四季通用深睡眠舒適貓窩</h3>
+                <p class="prod-desc">超柔軟飽滿的高彈力 PP 棉填充，給貓咪滿滿的安全感與包覆感。底部採用防滑防潮顆粒布料，內墊可雙面拆洗，夏季涼爽冬季保暖，主子一躺就睡著。</p>
+                
+                <div class="card-features-badges">
+                    <span>加厚高彈棉填充</span>
+                    <span>可拆洗好打理</span>
+                    <span>防滑防潮底面</span>
+                </div>
+
+                <div class="prod-bottom-row">
+                    <span class="prod-price">NT$ 580</span>
+                    <a href="wo.html" class="btn-view-detail">查看詳情</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+<footer>
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

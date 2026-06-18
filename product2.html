@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罐頭產品系列 - 寵物商城</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dryfood.css">
+    <style>
+        /* 內嵌罐頭卡片專屬的分類特色標籤色彩 */
+        .tag-green-can { background-color: #2ec4b6; } /* 拌銀魚綠 */
+        .tag-blue-can { background-color: #0077b6; }  /* 小鯷魚藍 */
+        .tag-red-can { background-color: #e63946; }   /* 木魚乾紅 */
+    </style>
+</head>
+<body>
+
+
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html">會員</a>
+            <a href="history.html">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+
+
+<main class="dryfood-main">
+    <div class="page-title-zone">
+        <h1>美味大餐罐頭系列</h1>
+        <p>精選新鮮食材與優質魚肉，高含水量完美補充愛貓每日所需水分</p>
+    </div>
+
+    <div class="products-grid">
+        
+        <div class="product-item-card">
+            <div class="prod-img-box">
+                <img src="images/greencan.jpg" alt="鰹魚拌銀魚罐頭">
+                <span class="age-tag tag-green-can">1歲以上成貓適用</span>
+            </div>
+            <div class="prod-info-box">
+                <h3>鰹魚拌銀魚罐頭</h3>
+                <p class="prod-desc">這款罐頭專為成貓設計，嚴選鰹魚與鮪魚，搭配鮮嫩小鯷魚，提供高品質蛋白與豐富營養，滿足貓咪的健康需求。使用嚴選海鮮食材，提供優質蛋白與豐富營養。</p>
+                
+                <div class="card-features-badges">
+                    <span>高品質蛋白</span>
+                    <span>均衡營養</span>
+                    <span>濃郁風味</span>
+                </div>
+
+                <div class="prod-bottom-row">
+                    <span class="prod-price">NT$ 65</span>
+                    <a href="greencan.html" class="btn-view-detail">查看詳情</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-item-card">
+            <div class="prod-img-box">
+                <img src="images/bluecan.jpg" alt="鰹魚小鯷魚罐頭">
+                <span class="age-tag tag-blue-can">1歲以上成貓適用</span>
+            </div>
+            <div class="prod-info-box">
+                <h3>鰹魚小鯷魚罐頭</h3>
+                <p class="prod-desc">這款罐頭專為成貓及挑嘴貓咪設計，採用高品質的海鮮原料，提供豐富的蛋白質與均衡的營養。精選鰹魚與鮪魚搭配細緻的銀魚，帶來絕佳的口感與吸引力。</p>
+                
+                <div class="card-features-badges">
+                    <span>高品質蛋白</span>
+                    <span>均衡營養</span>
+                    <span>美味滿足</span>
+                </div>
+
+                <div class="prod-bottom-row">
+                    <span class="prod-price">NT$ 65</span>
+                    <a href="bluecan.html" class="btn-view-detail">查看詳情</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-item-card">
+            <div class="prod-img-box">
+                <img src="images/redcan.jpg" alt="鰹魚木魚乾罐頭">
+                <span class="age-tag tag-red-can">1歲以上成貓適用</span>
+            </div>
+            <div class="prod-info-box">
+                <h3>鰹魚木魚乾罐頭</h3>
+                <p class="prod-desc">這款罐頭專為挑嘴貓咪設計，搭配精選鰹魚、鮪魚與柴魚，提供高品質蛋白和獨特風味，讓貓咪享受美味與營養。精選海鮮與柴魚，提供高品質蛋白和美味風味。</p>
+                
+                <div class="card-features-badges">
+                    <span>優質蛋白</span>
+                    <span>木魚風味</span>
+                    <span>營養均衡</span>
+                </div>
+
+                <div class="prod-bottom-row">
+                    <span class="prod-price">NT$ 65</span>
+                    <a href="redcan.html" class="btn-view-detail">查看詳情</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+<footer>
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

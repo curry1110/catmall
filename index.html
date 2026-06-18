@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幼貓乾糧 - 商家介紹</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-home-link">首頁</a>
+        <div class="dropdown">
+            <a href="product1.html">乾糧產品</a>
+            <div class="dropdown-content">
+                <a href="yocat.html">幼貓乾糧</a>
+                <a href="chencat.html">成貓乾糧</a>
+                <a href="oldcat.html">老貓乾糧</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product2.html">罐頭產品</a>
+            <div class="dropdown-content">
+                <a href="greencan.html">鰹魚拌銀魚罐頭</a>
+                <a href="bluecan.html">鰹魚小鯷魚罐頭</a>
+                <a href="redcan.html">鰹魚木魚乾罐頭</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="product3.html">其他</a>
+            <div class="dropdown-content">
+                <a href="sa.html">貓砂</a>
+                <a href="bowl.html">貓碗</a>
+                <a href="wo.html">貓窩</a>
+            </div>
+        </div>
+        <a href="team.html">組員介紹</a>
+        <div id="member-guest-zone">
+            <span id="welcome-msg" style="display: none;"></span>
+            <a href="login.html" id="login-link">登入</a>
+            <a href="register.html" id="register-link">註冊</a>
+            <a href="member.html" id="member-link">會員中心</a>
+            <a href="history.html" id="history-link">歷史紀錄</a>
+            <a href="cart.html" class="cart-link">購物車</a>
+            <a href="#" id="logout-link" style="display: none;">登出</a>
+        </div>
+        <form class="search-box">
+            <input type="text" id="search-keyword" placeholder="請輸入產品名稱" required />
+            <button type="submit">搜尋</button>
+        </form>
+    </nav>
+</header>
+
+
+<main>
+    <div class="container">
+        <div class="text">
+            <h1>關於我們</h1>
+            <h2>我們是專注於幼貓健康成長的品牌</h2>
+            <p>我們的品牌致力於提供高品質的幼貓乾糧，專為1歲以下幼貓設計，含有豐富的營養成分，幫助幼貓在成長過程中保持健康和活力。</p>
+            <p>每一包乾糧都經過精心挑選的天然食材製成，無人工色素與防腐劑，並經過多項測試，確保每一口都能提供幼貓所需的營養。</p>
+            <p>無論是支持幼貓的免疫系統、促進消化還是保護毛髮，我們的產品都能滿足所有需求。對於我們來說，貓咪的健康是我們最大的追求。</p>
+        </div>
+        <div class="image-wrapper">
+            <img src="images/index.jpg" alt="幼貓乾糧">
+        </div>
+    </div>
+</main>
+
+<div class="countdown-container">
+    <div class="countdown-title">限時促銷倒數</div>
+    <div id="countdown"></div>
+</div>
+
+<div class="carousel">
+    <div class="carousel-container" id="carousel-container">
+        <div class="carousel-slide">
+            <a href="yocat.html"><img alt="Promo 1" src="images/product1 ad.jpg"/></a>
+        </div>
+        <div class="carousel-slide">
+            <a href="product2.html"><img alt="Promo 2" src="images/product2 ad.jpg"/></a>
+        </div>
+        <div class="carousel-slide">
+            <a href="product3.html"><img alt="Promo 3" src="images/product3 ad.jpg"/></a>
+        </div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </button>
+    <div class="carousel-dots" id="carousel-dots"></div>
+</div>
+
+<div class="contact-info-block" id="contact">
+    <h3>聯絡我們</h3>
+    <p><strong>客服專線：</strong>0800-123-456</p>
+    <p><strong>客服時間：</strong>週一至週五 9:00 AM - 6:00 PM</p>
+    <p><strong>電子郵件：</strong>contact@pawsforacause.com</p>
+</div>
+
+<div class="cookie-consent" id="cookieConsent" style="display: none;">
+    <p>本網站使用 Cookie 來改善您的使用體驗。繼續使用本網站即表示您同意我們的 <a href="privacy.html">隱私權政策</a>。</p>
+    <button onclick="acceptCookies()">我同意</button>
+</div>
+
+
+<footer>
+    <p>© 2026 Paws for a Cause | All Rights Reserved</p>
+</footer>
+
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+<script>
+// Carousel Logic
+const container = document.getElementById('carousel-container');
+const slides = container ? container.children : [];
+const dotsContainer = document.getElementById('carousel-dots');
+let currentIndex = 0;
+
+if (container && slides.length > 0 && dotsContainer) {
+    for(let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if(i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+    }
+}
+
+function updateCarousel() {
+    if (!container || !dotsContainer) return;
+    container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    Array.from(dotsContainer.children).forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+    });
+}
+
+function moveSlide(direction) {
+    if (slides.length === 0) return;
+    currentIndex += direction;
+    if(currentIndex < 0) currentIndex = slides.length - 1;
+    if(currentIndex >= slides.length) currentIndex = 0;
+    updateCarousel();
+}
+
+setInterval(() => moveSlide(1), 5000);
+
+// Countdown Logic
+function initializeCountdown() {
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 1);
+    function updateCountdown() {
+        const now = new Date();
+        const distance = endDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const countdownEl = document.getElementById('countdown');
+        if (!countdownEl) return;
+        if (distance < 0) {
+            countdownEl.innerHTML = "促銷活動已結束！";
+        } else {
+            countdownEl.innerHTML = `<div class="countdown-item">${days}<span>天</span></div><div class="countdown-item">${hours}<span>時</span></div><div class="countdown-item">${minutes}<span>分</span></div><div class="countdown-item">${seconds}<span>秒</span></div>`;
+        }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+function checkCookieConsent() {
+    const cookieEl = document.getElementById('cookieConsent');
+    if (cookieEl && !localStorage.getItem('cookieConsent')) {
+        cookieEl.style.display = 'flex';
+    }
+}
+
+function acceptCookies() {
+    const cookieEl = document.getElementById('cookieConsent');
+    localStorage.setItem('cookieConsent', 'true');
+    if (cookieEl) cookieEl.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeCountdown();
+    checkCookieConsent();
+});
+</script>
+
+</body>
+</html>
